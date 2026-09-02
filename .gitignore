@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# Next.js build + static export output (regenerate with `npm run build`)
+.next/
+out/
+
+# typescript incremental build info
+*.tsbuildinfo
+
+# env
+.env
+.env.local
+.env.*.local
+
+# editor / OS
+.DS_Store
+Thumbs.db
+*.swp

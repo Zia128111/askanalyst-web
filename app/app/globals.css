@@ -1,0 +1,1082 @@
+/* Ask Analyst — design tokens
+   Generated from the Figma collection `Ask Analyst`.
+   Do not hand-edit: change the variable in Figma and regenerate. */
+
+:root {
+  /* colour */
+
+  --color-text-primary: #000000;
+  --color-text-secondary: #334155;
+  --color-text-muted: #606060;
+  --color-text-faint: #99A1AF;
+  --color-text-inverse: #FFFFFF;
+  --color-text-link: #1485FF;
+  --color-text-positive: #15803D;
+  --color-text-positive-strong: #008236;
+  --color-text-negative: #DF0000;
+  --color-text-negative-strong: #B91C1C;
+
+  --color-bg-surface: #FFFFFF;
+  --color-bg-subtle: #F0F0F0;
+  --color-bg-brand-subtle: #F0F7FF;
+  --color-bg-inverse: #1F2630;
+  --color-bg-inverse-strong: #060606;
+  --color-bg-positive-subtle: #DCFCE7;
+  --color-bg-negative-subtle: #FFE9E9;
+  --color-bg-warning-subtle: #FEF9C2;
+
+  --color-brand-primary: #1485FF;
+  --color-brand-dark: #0C3971;
+
+  --color-accent-info: #00A8E9;
+  --color-accent-positive: #0B7251;
+  --color-accent-negative: #C02F31;
+  --color-accent-neutral: #7A7A7A;
+
+  --color-border-default: #C0C0C0;
+  --color-border-subtle: #E5E7EB;
+  --color-border-strong: #979797;
+  --color-border-brand: #1485FF;
+  --color-border-indigo: #3969D5;
+  --color-border-positive: #008236;
+  --color-border-negative: #DF0000;
+
+  --color-chart-line-blue-1: #0086DB;
+  --color-chart-line-blue-2: #09A2F0;
+  --color-chart-line-blue-3: #0EA4F1;
+  --color-chart-axis: #808087;
+  --color-chart-grid: #EBEBF0;
+  --color-chart-heat-red-1: #5D0507;
+  --color-chart-heat-red-2: #62090A;
+  --color-chart-heat-red-3: #7F0817;
+  --color-chart-heat-red-4: #82091A;
+  --color-chart-heat-red-5: #83091D;
+  --color-chart-heat-red-6: #561010;
+  --color-chart-heat-red-7: #5D1212;
+  --color-chart-heat-red-8: #9C4A52;
+  --color-chart-heat-red-9: #AC7576;
+  --color-chart-heat-amber-1: #B6620A;
+  --color-chart-heat-amber-2: #BF7510;
+  --color-chart-heat-amber-3: #D69E14;
+  --color-chart-heat-amber-4: #DAB24A;
+  --color-chart-heat-amber-5: #E4CDA9;
+
+  --color-bg-overlay-base: #1E2137;
+  --color-bg-surface-alt: #FAFAFA;
+  --color-bg-subtle-alt: #F6F6F6;
+  --color-bg-surface-raised: #FEFEFE;
+  --color-bg-brand-tint: #C8E2FF;
+  --color-bg-brand-tint-soft: #DFEFFF;
+  --color-bg-brand-tint-faint: #F2FBFF;
+  --color-bg-positive-faint: #F0FDF4;
+
+  --color-brand-navy: #1D4283;
+  --color-brand-navy-deep: #0B3B78;
+  --color-brand-indigo-deep: #2A2E57;
+
+  --color-accent-amber: #894B00;
+  --color-accent-amber-bright: #FEB812;
+  --color-accent-orange: #F67B20;
+  --color-accent-negative-alt: #BC2B25;
+  --color-accent-positive-alt: #007744;
+  --color-accent-positive-deep: #097B4A;
+
+  --color-text-amber: #894B00;
+  --color-text-near-black: #0A0A0A;
+  --color-text-near-black-alt: #0B0B0B;
+  --color-text-grey-1: #8D8D8D;
+  --color-text-grey-2: #868686;
+  --color-text-navy: #1D4283;
+
+  --color-border-grey-1: #B9B9B9;
+  --color-border-grey-2: #CBCBCB;
+  --color-border-grey-3: #CDCDCD;
+  --color-border-grey-4: #DEDEDE;
+  --color-border-grey-5: #E0E0E0;
+
+  --color-bg-grey-1: #C7C7C7;
+  --color-bg-near-black: #020202;
+  --color-bg-charcoal: #373435;
+
+  --color-text-warning: #D97706;
+
+  --color-chart-series-1: #1485FF;
+  --color-chart-series-2: #0B7251;
+  --color-chart-series-3: #FEB812;
+  --color-chart-series-4: #C02F31;
+  --color-chart-series-5: #2A2E57;
+  --color-chart-series-6: #00A8E9;
+  --color-chart-series-7: #F67B20;
+  --color-chart-series-8: #1D4283;
+
+  /* spacing */
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-5: 5px;
+  --space-6: 6px;
+  --space-7: 7px;
+  --space-8: 8px;
+  --space-9: 9px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-22: 22px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-30: 30px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* radius */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 15px;
+  --radius-3xl: 20px;
+  --radius-full: 500px;
+
+  /* border width */
+  --stroke-1: 1px;
+  --stroke-1-2: 1.2px;
+  --stroke-1-5: 1.5px;
+  --stroke-2: 2px;
+
+  /* typography */
+  --font-sans: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-size-9: 9px;
+  --font-size-11: 11px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-21: 21px;
+  --font-size-24: 24px;
+  --font-size-26: 26px;
+  --font-size-32: 32px;
+  --font-size-40: 40px;
+}
+
+/* ---- type ramp (matches Figma text styles 1:1) ---- */
+.display-xl { font-family: var(--font-sans); font-weight: 700; font-size: 40px; line-height: normal; }
+.display-lg { font-family: var(--font-sans); font-weight: 700; font-size: 32px; line-height: normal; }
+.heading-h1 { font-family: var(--font-sans); font-weight: 700; font-size: 20px; line-height: 1.49; }
+.heading-h1-tight { font-family: var(--font-sans); font-weight: 700; font-size: 20px; line-height: 28px; }
+.heading-h2 { font-family: var(--font-sans); font-weight: 700; font-size: 20px; line-height: 24px; }
+.heading-h2-auto { font-family: var(--font-sans); font-weight: 700; font-size: 20px; line-height: normal; }
+.heading-h3 { font-family: var(--font-sans); font-weight: 700; font-size: 16px; line-height: normal; }
+.heading-h4 { font-family: var(--font-sans); font-weight: 600; font-size: 16px; line-height: normal; }
+.heading-card-title { font-family: var(--font-sans); font-weight: 700; font-size: 14px; line-height: 20px; }
+.heading-card-title-lg { font-family: var(--font-sans); font-weight: 700; font-size: 14px; line-height: 22px; }
+.heading-company-name { font-family: var(--font-sans); font-weight: 700; font-size: 13px; line-height: normal; }
+.body-lead { font-family: var(--font-sans); font-weight: 400; font-size: 21px; line-height: 26.25px; }
+.body-lg { font-family: var(--font-sans); font-weight: 400; font-size: 18px; line-height: 24px; }
+.body-paragraph { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1.49; }
+.body-md { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 24px; }
+.body-md-auto { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: normal; }
+.body-md-tight { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1; }
+.body-sm { font-family: var(--font-sans); font-weight: 400; font-size: 14px; line-height: normal; }
+.body-sm-20 { font-family: var(--font-sans); font-weight: 400; font-size: 14px; line-height: 20px; }
+.body-sm-22 { font-family: var(--font-sans); font-weight: 400; font-size: 14px; line-height: 22px; }
+.body-sm-relaxed { font-family: var(--font-sans); font-weight: 400; font-size: 14px; line-height: 1.49; }
+.body-sm-medium { font-family: var(--font-sans); font-weight: 600; font-size: 14px; line-height: normal; }
+.body-xs { font-family: var(--font-sans); font-weight: 400; font-size: 13px; line-height: normal; }
+.body-xs-relaxed { font-family: var(--font-sans); font-weight: 400; font-size: 13px; line-height: 20.8px; }
+.body-xl-plain { font-family: var(--font-sans); font-weight: 400; font-size: 20px; line-height: normal; }
+.label-md { font-family: var(--font-sans); font-weight: 700; font-size: 12px; line-height: normal; }
+.label-sm { font-family: var(--font-sans); font-weight: 700; font-size: 11px; line-height: normal; }
+.label-sm-16 { font-family: var(--font-sans); font-weight: 700; font-size: 11px; line-height: 16.5px; }
+.label-sm-alt { font-family: var(--font-sans); font-weight: 700; font-size: 11.5px; line-height: 17.25px; }
+.label-xs { font-family: var(--font-sans); font-weight: 400; font-size: 9px; line-height: 13.5px; }
+.display-40 { font-family: var(--font-sans); font-weight: 400; font-size: 40px; line-height: normal; }
+.label-12 { font-family: var(--font-sans); font-weight: 400; font-size: 12px; line-height: normal; }
+.body-16-bold-20_8 { font-family: var(--font-sans); font-weight: 700; font-size: 16px; line-height: 20.8px; }
+.heading-21-semibold-26_25 { font-family: var(--font-sans); font-weight: 600; font-size: 21px; line-height: 26.25px; }
+.heading-20-medium-30 { font-family: var(--font-sans); font-weight: 500; font-size: 20px; line-height: 30px; }
+.label-11-bold-17_25 { font-family: var(--font-sans); font-weight: 700; font-size: 11px; line-height: 17.25px; }
+.label-11-17_25 { font-family: var(--font-sans); font-weight: 400; font-size: 11px; line-height: 17.25px; }
+.body-16-p140 { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1.4; }
+.label-6-bold { font-family: var(--font-sans); font-weight: 700; font-size: 6px; line-height: normal; }
+.body-18 { font-family: var(--font-sans); font-weight: 400; font-size: 18px; line-height: normal; }
+.label-9 { font-family: var(--font-sans); font-weight: 400; font-size: 9px; line-height: normal; }
+.label-11-bold-p149 { font-family: var(--font-sans); font-weight: 700; font-size: 11px; line-height: 1.49; }
+.label-9-p149 { font-family: var(--font-sans); font-weight: 400; font-size: 9px; line-height: 1.49; }
+.body-16-p150 { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1.5; }
+.display-32-bold-p149 { font-family: var(--font-sans); font-weight: 700; font-size: 32px; line-height: 1.49; }
+.label-12-bold-20 { font-family: var(--font-sans); font-weight: 700; font-size: 12px; line-height: 20px; }
+
+/* ============ reset & base ============ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .sidenote:target { animation: none; }
+}
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+svg { display: block; flex: none; }
+
+/* numeric columns stay aligned — critical for price/ratio tables */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* ============ layout primitives ============ */
+.page      { display: flex; flex-direction: column; align-items: center; gap: 34px; padding-bottom: 50px; min-height: 100vh; }
+.shell     { margin-top: 0; }
+.shell     { width: 1260px; max-width: 100%; }
+.row       { display: flex; flex-direction: row; }
+.col       { display: flex; flex-direction: column; }
+.center    { align-items: center; }
+.between   { justify-content: space-between; }
+
+/* ============ card ============ */
+.card {
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg-surface);
+}
+.card--pad   { padding: var(--space-24); }
+.card--panel { border-radius: var(--radius-lg); }
+.card--raised{ box-shadow: 0 6px 24px rgb(0 0 0 / 0.03), 0 1px 3px rgb(0 0 0 / 0.04); }
+
+/* ============ chip / badge ============ */
+.chip {
+  display: inline-flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  font-size: 13px; font-weight: 700; line-height: 1;
+}
+.badge {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-4);
+  padding: var(--space-4) var(--space-10);
+  border-radius: var(--radius-md);
+  border-width: 1px; border-style: solid;
+  font-size: 11px; font-weight: 700; line-height: 17.25px;
+  white-space: nowrap;
+}
+.badge--positive { background: var(--color-bg-positive-faint);   border-color: var(--color-chart-series-2);  color: var(--color-text-positive); }
+.badge--negative { background: var(--color-bg-negative-subtle);  border-color: var(--color-border-negative); color: var(--color-text-negative); }
+.badge--warning  { background: var(--color-bg-warning-subtle);   border-color: var(--color-accent-amber);    color: var(--color-text-amber); }
+.badge--info     { background: var(--color-bg-brand-tint-faint); border-color: var(--color-accent-info);     color: var(--color-accent-info); }
+.badge--neutral  { background: var(--color-bg-subtle);           border-color: var(--color-border-strong);   color: var(--color-text-muted); }
+.badge--brand    { background: var(--color-bg-brand-subtle);     border-color: var(--color-border-brand);    color: var(--color-text-link); }
+
+/* ============ button ============ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-8);
+  padding: var(--space-10) var(--space-14);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-brand);
+  background: var(--color-bg-surface);
+  font-size: 14px; font-weight: 400;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.btn:hover        { background: var(--color-bg-brand-subtle); }
+.btn--primary     { background: var(--color-brand-primary); border-color: var(--color-brand-primary); color: var(--color-text-inverse); }
+.btn--primary:hover { background: var(--color-brand-navy); border-color: var(--color-brand-navy); }
+.btn--icon        { padding: var(--space-10); width: 40px; }
+
+/* ============ dropdown ============ */
+.dropdown {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: var(--space-8);
+  padding: 0 var(--space-14); height: 31px;
+  border: 0.3px solid var(--color-border-brand);
+  border-radius: 3px;
+  font-size: 12px;
+}
+.dropdown--lg { height: 36px; border-radius: var(--radius-sm); font-size: 14px; }
+
+/* ============ sidenote ============ */
+.sidenote {
+  background: var(--color-bg-brand-subtle);
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) 17px;
+  display: flex; flex-direction: column; gap: var(--space-6);
+  /* clears the 60px sticky header when jumped to from a marker */
+  scroll-margin-top: 76px;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+/* The note a marker was clicked through to. Stays lit so it is still obvious
+   which note you landed on after the scroll settles. */
+.sidenote:target {
+  border-color: var(--color-accent-info);
+  box-shadow: 0 0 0 3px rgb(0 168 233 / 0.16);
+  animation: note-arrive 600ms ease-out;
+}
+@keyframes note-arrive {
+  from { box-shadow: 0 0 0 8px rgb(0 168 233 / 0.30); }
+  to   { box-shadow: 0 0 0 3px rgb(0 168 233 / 0.16); }
+}
+
+/* Footnote reference inside prose: the defined term plus the superscript digit
+   that points at its `Sidenote`. Both are part of one link. */
+.noteref {
+  color: var(--color-accent-info);
+  text-decoration: none;
+  scroll-margin-top: 76px;
+}
+.noteref__num {
+  font-weight: 700;
+  font-size: 0.72em;
+  vertical-align: super;
+  line-height: 0;
+  padding-left: 1px;
+}
+.noteref:hover .noteref__term { text-decoration: underline; }
+.noteref:focus-visible { outline: 2px solid var(--color-accent-info); outline-offset: 2px; border-radius: 2px; }
+.sidenote__marker {
+  width: 18px; height: 18px; border-radius: 999px;
+  background: var(--color-accent-info); color: var(--color-text-inverse);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 9px; line-height: 13.5px; flex: none;
+}
+.sidenote__term { color: var(--color-accent-info); font-size: 11px; font-weight: 700; }
+.sidenote__body { color: var(--color-text-secondary); font-size: 13px; line-height: 20.8px; }
+
+/* ============ key-levels table ============ */
+/* Figma `Frame 41088`: GRID, width 894, two 447px columns, gap 0.
+   Ruled style: horizontal hairlines only — no outer frame, no column rule.
+   Rules use the page's border blues: brand for rows, the deeper indigo under
+   the header band so it still reads as a divider. */
+.levels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 894px;
+  max-width: 100%;
+}
+.levels__cell {
+  border-bottom: 1px solid var(--color-border-brand);
+  padding: var(--space-12) var(--space-16);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.levels__cell--head {
+  background: var(--color-bg-brand-subtle);
+  border-bottom: 1px solid var(--color-border-indigo);
+  min-height: 38px;
+  font-weight: 600;
+}
+.levels__cell--num  { justify-content: flex-end; text-align: right; font-variant-numeric: tabular-nums; }
+.levels__cell--up   { color: var(--color-text-positive); }
+.levels__cell--down { color: var(--color-text-negative-strong); }
+.levels__cell--muted{ color: var(--color-text-secondary); }
+
+/* ============ data table ============ */
+.dtable { width: 100%; border-collapse: collapse; font-size: 13px; }
+.dtable th, .dtable td { padding: var(--space-8) var(--space-10); text-align: right; white-space: nowrap; }
+.dtable th:first-child, .dtable td:first-child { text-align: left; }
+.dtable thead th { font-weight: 700; border-bottom: 1px solid var(--color-border-subtle); }
+.dtable tbody tr { border-bottom: 1px solid var(--color-border-subtle); }
+.dtable tbody tr.is-total { font-weight: 700; }
+.dtable td.num { font-variant-numeric: tabular-nums; }
+.dtable td.up   { color: var(--color-text-positive); }
+.dtable td.down { color: var(--color-text-negative); }
+
+/* ============ insight rating pill ============ */
+/* Figma `Insight Rating` — 14px bold, 4px/7px, radius 6. Larger than `.badge`,
+   which stays the 11px pill used on the research page. */
+.rating {
+  display: inline-flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-4) 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  font-size: 14px; font-weight: 700; line-height: 20px;
+  white-space: nowrap;
+}
+.rating--brand    { background: var(--color-bg-brand-subtle);    border-color: var(--color-border-brand);    color: var(--color-text-link); }
+.rating--positive { background: var(--color-bg-positive-subtle); border-color: var(--color-border-positive); color: var(--color-text-positive-strong); }
+.rating--negative { background: var(--color-bg-negative-subtle); border-color: var(--color-border-negative); color: var(--color-text-negative); }
+.rating--warning  { background: var(--color-bg-warning-subtle);  border-color: var(--color-accent-amber);    color: var(--color-text-amber); }
+.rating--neutral  { background: var(--color-bg-subtle);          border-color: var(--color-border-strong);   color: var(--color-text-muted); }
+.rating__mark     { width: 12px; height: 12px; flex: none; object-fit: contain; }
+
+/* ============ insights hero ============ */
+/* Figma `Insights Header Image` — 1259x120, the sparkline sits behind at 15%. */
+.ihero {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-20);
+  padding: var(--space-24);
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg-brand-subtle);
+  min-height: 120px;
+}
+.ihero__art {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 72%; opacity: 0.15; pointer-events: none;
+}
+.ihero__body  { position: relative; display: flex; flex-direction: column; gap: var(--space-10); max-width: 560px; }
+.ihero__title { display: flex; align-items: center; gap: var(--space-5); margin: 0; font-size: 20px; font-weight: 700; line-height: 28px; }
+.ihero__sub   { margin: 0; padding: var(--space-5); font-size: 16px; line-height: 1.49; color: var(--color-text-secondary); }
+.ihero__pill {
+  position: relative; flex: none;
+  display: inline-flex; align-items: center; gap: var(--space-5);
+  padding: var(--space-4) var(--space-10);
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  font-size: 14px; line-height: 20px;
+}
+.ihero__dot { width: 5px; height: 5px; border-radius: 999px; background: var(--color-brand-primary); }
+
+/* ============ tabs (Figma `Tabs Navigation`) ============ */
+.tabs { display: flex; gap: 3px; border-bottom: 1px solid var(--color-border-grey-5); overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  padding: 9px var(--space-16);
+  font-size: 14px; line-height: 22px; color: var(--color-text-primary);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+.tab:hover { color: var(--color-text-link); }
+.tab[aria-selected="true"] { color: var(--color-text-link); border-bottom-color: var(--color-brand-primary); }
+
+/* ============ filter row ============ */
+.filterbar { display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; justify-content: flex-end; }
+.filterbar__icon {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; flex: none;
+  border: 0.3px solid var(--color-border-brand);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+.filterbar__icon:hover,
+.filterbar__icon[aria-expanded="true"] { border-color: var(--color-brand-primary); color: var(--color-text-link); }
+/* How many blocks the funnel is currently hiding. */
+.filterbar__count {
+  position: absolute; top: -5px; right: -5px;
+  min-width: 16px; height: 16px; padding: 0 4px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 999px;
+  background: var(--color-brand-primary); color: var(--color-text-inverse);
+  font-size: 10px; font-weight: 700; line-height: 1;
+}
+
+/* ============ filter menu ============ */
+.fmenu { position: relative; }
+.dropdown[aria-expanded='true'] { border-color: var(--color-brand-primary); color: var(--color-text-link); }
+.fmenu__panel {
+  position: absolute; z-index: 30; top: calc(100% + 4px); right: 0;
+  width: max-content; min-width: 200px; max-width: min(300px, calc(100vw - 32px));
+  max-height: 320px; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.10);
+  text-align: left;
+}
+.fmenu__search {
+  width: 100%; padding: var(--space-8) var(--space-10); margin-bottom: var(--space-4);
+  border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);
+  font: inherit; font-size: 13px;
+}
+.fmenu__search:focus-visible { outline: 2px solid var(--color-border-brand); outline-offset: -1px; }
+.fmenu__opt {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-8);
+  width: 100%; padding: 7px var(--space-10);
+  border: 0; border-radius: var(--radius-sm); background: none;
+  font: inherit; font-size: 13px; text-align: left; color: var(--color-text-primary);
+  cursor: pointer;
+}
+.fmenu__opt:hover { background: var(--color-bg-brand-subtle); }
+.fmenu__opt[aria-selected='true'] { color: var(--color-text-link); font-weight: 700; }
+/* Multi-select tick. Reserves its slot so labels do not shift on toggle. */
+.fmenu__tick { flex: none; width: 14px; text-align: center; color: var(--color-text-link); font-weight: 700; }
+/* A multi-pick label can run long — keep the block from stretching the row. */
+.dropdown__text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 190px; }
+.fmenu__empty { margin: 0; padding: var(--space-8) var(--space-10); font-size: 13px; color: var(--color-text-muted); }
+.fmenu__panel--left { left: 0; right: auto; }
+.fmenu__caption {
+  margin: 0; padding: var(--space-4) var(--space-10) var(--space-6);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+label.fmenu__opt { cursor: pointer; }
+.fmenu__opt input[type="checkbox"] { accent-color: var(--color-brand-primary); width: 15px; height: 15px; cursor: pointer; }
+.fmenu__foot { margin-top: var(--space-4); padding: var(--space-6) var(--space-10) var(--space-2); border-top: 1px solid var(--color-border-subtle); }
+
+/* result summary + empty state for a filtered list */
+.resultcount { margin: 0; display: flex; align-items: center; gap: var(--space-10); font-size: 13px; color: var(--color-text-muted); }
+.resetlink {
+  border: 0; background: none; padding: 0; cursor: pointer;
+  font: inherit; font-size: 13px; color: var(--color-text-link); text-decoration: underline;
+}
+.emptystate {
+  margin: 0; padding: 40px 30px; text-align: center;
+  font-size: 16px; color: var(--color-text-muted);
+  border: 1px dashed var(--color-border-grey-1); border-radius: var(--radius-2xl);
+}
+
+/* ============ insight card ============ */
+/* Figma `Summary Text` — 30px/22px padding, radius 15. Figma specs a grey-1
+   hairline here, but the product uses the brand blue on every other card, so
+   this follows the theme rather than the file. */
+.icard {
+  display: flex; flex-direction: column; gap: var(--space-12);
+  padding: 22px 30px;
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg-surface);
+}
+.icard__meta    { display: flex; align-items: center; justify-content: space-between; gap: var(--space-12); flex-wrap: wrap; }
+.icard__pills   { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.icard__source  { font-size: 14px; line-height: 20px; color: var(--color-text-faint); white-space: nowrap; }
+.icard__title   { margin: 0; font-size: 20px; font-weight: 700; line-height: 1.49; }
+.icard__summary { margin: var(--space-4) 0 0; font-size: 16px; line-height: 1.49; color: var(--color-text-secondary); }
+.icard__foot    { display: flex; align-items: center; gap: var(--space-12); flex-wrap: wrap; }
+.icard__tags    { flex: 1 1 240px; min-width: 0; font-size: 16px; line-height: 1.49; color: var(--color-text-link); }
+.icard__actions { display: flex; align-items: center; gap: 17px; flex-wrap: wrap; }
+.iaction {
+  display: inline-flex; align-items: center; gap: var(--space-8);
+  font-size: 16px; line-height: 1.49; color: var(--color-text-secondary);
+  background: none; border: 0; padding: 0; cursor: pointer;
+}
+.iaction:hover { color: var(--color-text-link); }
+.viewmore {
+  align-self: flex-end; display: inline-flex; align-items: center; gap: var(--space-8);
+  border: 0; background: none; padding: var(--space-4) 0; cursor: pointer;
+  font: inherit; font-size: 16px; color: var(--color-text-secondary);
+}
+.viewmore:hover { color: var(--color-text-link); }
+
+/* ============ company card (Figma `Company Card`) ============ */
+.ccompany       { display: flex; align-items: center; gap: 13px; }
+.ccompany__art  { width: 64px; height: 64px; flex: none; object-fit: contain; }
+.ccompany__name { margin: 0; padding: var(--space-5); font-size: 20px; font-weight: 700; line-height: 1; }
+.ccompany__tags { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+
+/* ============ scope band ============ */
+/* Sits under the tab strip and describes what the filters have in scope —
+   one company's coverage, or a roll-up across several. */
+.scope {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-24); flex-wrap: wrap;
+}
+.scope__id  { display: flex; align-items: center; gap: 13px; min-width: 0; }
+.scope__sub { font-size: 14px; color: var(--color-text-secondary); }
+
+.scope__stats {
+  display: flex; align-items: flex-start; gap: 34px; flex-wrap: wrap;
+}
+.scope__stat      { display: flex; flex-direction: column; gap: var(--space-4); }
+.scope__statlabel {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.scope__statvalue { font-size: 20px; font-weight: 700; line-height: 1.2; }
+
+.scope__splitwrap { display: flex; flex-direction: column; gap: var(--space-6); min-width: 220px; }
+.scope__splitwrap .cbar { height: 8px; }
+
+@media (max-width: 640px) {
+  .scope        { gap: var(--space-16); }
+  .scope__stats { gap: var(--space-20); }
+  .scope__statvalue { font-size: 17px; }
+}
+
+/* ============ consensus ============ */
+.ccard {
+  display: flex; flex-direction: column; gap: 27px;
+  padding: 28px 34px;
+  border: 1px solid var(--color-border-brand);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+}
+.ccard__head    { display: flex; align-items: center; justify-content: space-between; gap: var(--space-24); flex-wrap: wrap; }
+.ccard__verdict { text-align: right; }
+.ccard__verdict small  { display: block; font-size: 14px; line-height: 1.49; color: var(--color-text-primary); }
+.ccard__verdict strong { display: block; font-size: 32px; line-height: 1.487; }
+/* The headline takes the colour of whichever call actually leads. */
+.ccard__verdict--buy  { color: var(--color-text-positive-strong); }
+.ccard__verdict--hold { color: var(--color-text-warning); }
+.ccard__verdict--sell { color: var(--color-text-negative); }
+/* Pills that filter the table below. */
+.rating--btn { cursor: pointer; font-family: inherit; }
+.rating--btn:hover { filter: brightness(0.96); }
+.rating--btn[aria-pressed="true"] { box-shadow: 0 0 0 2px rgb(20 133 255 / 0.35); }
+/* Buy / Hold / Sell share of coverage, drawn from the counts rather than art. */
+.cbar { display: flex; height: 6px; border-radius: 999px; overflow: hidden; background: var(--color-bg-subtle); }
+.cbar__seg--buy  { background: var(--color-border-positive); }
+.cbar__seg--hold { background: var(--color-accent-orange); }
+.cbar__seg--sell { background: var(--color-text-negative); }
+.cbar__seg--neu  { background: var(--color-border-strong); }
+.callout {
+  display: flex; align-items: center; gap: var(--space-5);
+  padding: 13px 11px;
+  border: 1px solid var(--color-accent-amber);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-warning-subtle);
+  font-size: 16px; line-height: 1.24; color: var(--color-text-secondary);
+}
+
+/* Broker table — same ruled treatment as `.levels`. */
+.ctable { display: grid; grid-template-columns: 1.1fr 1fr 1fr 0.9fr 1fr; width: 100%; }
+.ctable__cell {
+  display: flex; align-items: center;
+  padding: var(--space-10);
+  min-height: 56px;
+  border-bottom: 1px solid var(--color-border-brand);
+  font-size: 13px;
+}
+.ctable__cell--head {
+  min-height: 57px;
+  background: var(--color-bg-brand-subtle);
+  border-bottom: 1px solid var(--color-border-indigo);
+  font-size: 16px; font-weight: 600;
+}
+.ctable__cell--mid { justify-content: center; }
+/* Compact variant used by the Key Data and results tables. */
+.ctable__cell--sm     { min-height: 36px; font-size: 13px; }
+.ctable__cell--head.ctable__cell--sm { min-height: 37px; font-size: 14px; font-weight: 600; }
+.ctable__cell--strong { font-weight: 700; }
+
+/* Figma `Frame 41090` — two label/value pairs per row. */
+.kdata { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; }
+.kdata__head { grid-column: 1 / -1; }
+/* Figma `Frame 41088` — quarterly results, seven columns. */
+.fintable { display: grid; grid-template-columns: 1.5fr repeat(6, minmax(0, 1fr)); width: 100%; min-width: 660px; }
+
+.rtags { margin: 0; font-size: 16px; line-height: 1.49; color: var(--color-text-link); }
+.ctable__cell--end { justify-content: flex-end; }
+
+/* ============ timeline ============ */
+.tl        { display: flex; align-items: stretch; gap: var(--space-24); }
+/* Sized by the track next to it — the rail ends level with the last event card
+   rather than running on past it. Its own content scrolls inside. */
+.tl__yearsbox { position: relative; flex: none; width: 72px; min-height: 120px; }
+/* Year rail: scrolls on its own so a long coverage history does not stretch
+   the track beside it. */
+.tl__years {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  /* Years spread across the rail so the list ends level with the track rather
+     than bunching at the top; the gap is the floor when they do not fit. */
+  justify-content: space-between; gap: var(--space-8);
+  overflow-y: auto;
+  padding: var(--space-8) var(--space-4) var(--space-8) 0;
+  scrollbar-width: thin;
+}
+.tl__year {
+  position: relative;
+  width: 100%; padding: var(--space-2) var(--space-8) var(--space-2) 0;
+  border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 16px; text-align: right;
+  color: var(--color-text-muted);
+  transition: color 120ms ease, font-size 120ms ease;
+}
+.tl__year:hover { color: var(--color-text-link); }
+.tl__year:focus-visible { outline: 2px solid var(--color-border-brand); outline-offset: 2px; border-radius: var(--radius-xs); }
+.tl__year--on { font-size: 24px; font-weight: 700; color: var(--color-text-link); }
+/* Marks a year that has coverage to open. */
+.tl__year-dot {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 4px; height: 4px; border-radius: 999px;
+  background: var(--color-border-brand); opacity: 0.55;
+}
+.tl__year--on .tl__year-dot { opacity: 0; }
+.tl__empty {
+  flex: 1 1 0; margin: 0; padding: var(--space-24);
+  border: 1px dashed var(--color-border-grey-1); border-radius: var(--radius-md);
+  font-size: 14px; color: var(--color-text-muted);
+}
+/* The spine is painted into the track's own padding as a background, so it
+   stays put while entries scroll past — and, unlike a border, it leaves the
+   dots room inside the box instead of letting overflow clip them.
+   Scrollbar is hidden: the year rail is the way through the history. */
+.tl__track {
+  flex: 1 1 0; min-width: 0;
+  display: flex; flex-direction: column; gap: var(--space-20);
+  max-height: 520px; overflow-y: auto;
+  padding: var(--space-8) var(--space-4) var(--space-8) 30px;
+  background: linear-gradient(var(--color-border-grey-5), var(--color-border-grey-5))
+              no-repeat 13px 0 / 1px 100%;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.tl__track::-webkit-scrollbar { display: none; }
+.tl__event { position: relative; display: flex; flex-direction: column; gap: var(--space-10); align-items: flex-start; }
+/* Sits on the spine at x=13.5, fully inside the padding so nothing clips it. */
+.tl__event::before {
+  content: ''; position: absolute; left: -21px; top: 6px;
+  width: 9px; height: 9px; border-radius: 999px;
+  background: var(--color-brand-primary);
+}
+.tl__date {
+  display: inline-flex; padding: var(--space-4) var(--space-10);
+  border: 1px solid var(--color-border-brand); border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  font-size: 13px; font-weight: 700;
+}
+.tl__card {
+  display: flex; flex-direction: column; gap: var(--space-8);
+  padding: var(--space-14) var(--space-16);
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+}
+.tl__card h4 { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.35; }
+.tl__card p  { margin: 0; font-size: 14px; line-height: 1.49; color: var(--color-text-secondary); }
+
+/* ============ price panel ============ */
+.tfchips { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+.tfchip {
+  min-width: 30px; padding: var(--space-4) var(--space-8);
+  border: 1px solid var(--color-border-grey-5); border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  font-size: 13px; text-align: center;
+}
+.tfchip[aria-pressed="true"] { border-color: var(--color-border-brand); color: var(--color-text-link); font-weight: 700; }
+/* Fills the height the track sets beside it, so both columns end level. */
+.pricepanel { display: flex; flex-direction: column; gap: var(--space-16); height: 100%; }
+.quote      { display: flex; align-items: center; gap: 14px; }
+.quote__art { width: 50px; height: 50px; flex: none; object-fit: contain; }
+.quote__now { display: flex; align-items: baseline; gap: var(--space-8); font-size: 20px; }
+.chartwrap  { position: relative; padding-right: 44px; flex: 1 1 auto; min-height: 180px; }
+.chart      { display: block; width: 100%; height: 100%; overflow: visible; }
+.chart__mark { cursor: pointer; transition: r 120ms ease; }
+.chart__mark:hover { r: 7; }
+.chart__axis {
+  position: absolute; right: 0; top: 0; bottom: 0; width: 40px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  font-size: 13px; color: var(--color-text-muted); text-align: right;
+}
+.chart__tip {
+  position: absolute; z-index: 2;
+  width: 248px; max-width: calc(100% - var(--space-16));
+  display: flex; flex-direction: column; gap: var(--space-5);
+  padding: var(--space-8) var(--space-10);
+  border: 1px solid var(--color-border-brand); border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.06);
+}
+/* Pills shrink here so the broker and sentiment sit on one line. */
+.chart__tip .rating {
+  font-size: 10px; line-height: 14px; gap: 3px; padding: 2px var(--space-5);
+  border-radius: var(--radius-xs);
+}
+.chart__tip .rating__mark { width: 10px; height: 10px; }
+.chart__tip .icard__pills { flex-wrap: nowrap; }
+.chart__tipdate { font-size: 10px; font-weight: 700; color: var(--color-text-muted); }
+.chart__tipclose {
+  position: absolute; top: 2px; right: 4px;
+  border: 0; background: none; padding: 0 var(--space-4); cursor: pointer;
+  font-size: 15px; line-height: 1; color: var(--color-text-muted);
+}
+.chart__tipclose:hover { color: var(--color-text-primary); }
+.chart__tip h5 { margin: 0; padding-right: var(--space-12); font-size: 12px; font-weight: 700; line-height: 1.35; }
+.chart__tip p  { margin: 0; font-size: 10px; line-height: 1.45; color: var(--color-text-secondary); }
+
+/* Timeline tab: event rail beside the price panel. */
+.tlsplit        { display: flex; align-items: stretch; gap: var(--space-24); }
+.tlsplit__rail  { flex: 1 1 0; min-width: 0; }
+.tlsplit__chart { flex: 1.2 1 0; min-width: 0; }
+/* The broker table keeps its five columns and scrolls rather than crushing. */
+.ctable-scroll  { overflow-x: auto; }
+
+/* ============ research library ============ */
+/* Free-text search above the filter row. */
+.rsearch {
+  display: flex; align-items: center; gap: var(--space-8);
+  padding: 0 var(--space-14); height: 44px;
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+}
+.rsearch:focus-within { box-shadow: 0 0 0 3px rgb(20 133 255 / 0.14); }
+.rsearch__icon  { font-size: 18px; color: var(--color-text-muted); }
+.rsearch input  {
+  flex: 1 1 auto; min-width: 0; border: 0; outline: 0; background: none;
+  font: inherit; font-size: 15px; color: var(--color-text-primary);
+}
+.rsearch input::-webkit-search-cancel-button { display: none; }
+.rsearch__clear {
+  border: 0; background: none; cursor: pointer; padding: 0 var(--space-4);
+  font-size: 18px; line-height: 1; color: var(--color-text-muted);
+}
+.rsearch__clear:hover { color: var(--color-text-primary); }
+
+/* Count on the left, sort on the right. */
+.rhead {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-12); flex-wrap: wrap;
+}
+
+/* Month break in the feed. */
+.rgroup {
+  margin: var(--space-8) 0 0;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Report card additions on top of `.icard`. */
+.rcard__link { color: var(--color-text-primary); text-decoration: none; }
+.rcard__link:hover { color: var(--color-text-link); text-decoration: underline; }
+.rcard__meta {
+  flex: 1 1 260px; min-width: 0;
+  display: flex; align-items: center; gap: var(--space-10); flex-wrap: wrap;
+  font-size: 14px; color: var(--color-text-secondary);
+}
+.rcard__tickers { display: inline-flex; gap: var(--space-4); flex-wrap: wrap; }
+.rcard__ticker {
+  padding: 1px var(--space-6);
+  border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs);
+  background: var(--color-bg-subtle-alt);
+  font-size: 12px; font-weight: 700; color: var(--color-text-muted);
+}
+.rcard__by     { color: var(--color-text-muted); }
+.rcard__target { font-weight: 700; }
+.rcard__target em { font-style: normal; margin-left: var(--space-4); }
+.rcard__up   { color: var(--color-text-positive); }
+.rcard__down { color: var(--color-text-negative); }
+
+/* ============ research rail ============ */
+.rail__title { margin: 0; font-size: 20px; font-weight: 700; line-height: 24px; }
+.rail__list  { padding: 0; }
+.rail__row   { display: flex; align-items: flex-start; gap: var(--space-10); }
+.rail__rank {
+  flex: none; width: 20px; height: 20px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--color-bg-brand-subtle); color: var(--color-text-link);
+  font-size: 11px; font-weight: 700;
+}
+.rail__link { font-size: 14px; line-height: 1.35; color: var(--color-text-primary); text-decoration: none; }
+a.rail__link:hover { color: var(--color-text-link); text-decoration: underline; }
+/* Full-size `.chip`, matching Related Reports on the detail screen. */
+.rail__chips { flex-wrap: wrap; }
+/* Date sits under the heading as plain text, not a pill. */
+.rail__date { font-size: 12px; color: var(--color-text-muted); }
+.rail__between { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); }
+/* Bigger than the 12px pill mark — this row has the space for it, and 12px
+   reads as undersized next to 14px body text. */
+.rail__mark { width: 20px; height: 20px; flex: none; object-fit: contain; }
+.rail__name {
+  font-size: 14px; color: var(--color-text-primary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.rail__sectors { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+.rail__sector {
+  display: inline-flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-4) var(--space-8);
+  border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  font-size: 13px; color: var(--color-text-primary);
+}
+.rail__sector em { font-style: normal; color: var(--color-text-muted); font-size: 11px; }
+.rail__all {
+  display: inline-flex; align-items: center; gap: var(--space-8);
+  font-size: 14px; color: var(--color-text-secondary);
+}
+.rail__all:hover { color: var(--color-text-link); }
+
+/* ============ share dialog (Figma `Share_Popup` 6148:9076) ============ */
+.sharescrim {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-20);
+  background: rgb(0 0 0 / 0.55);
+}
+.sharedlg {
+  position: relative;
+  width: 464px; max-width: 100%;
+  max-height: calc(100dvh - 40px); overflow-y: auto;
+  display: flex; flex-direction: column; gap: 26px;
+  padding: 32px;
+  border-radius: 4px;
+  background: var(--color-bg-surface);
+  box-shadow: 0 14px 27px rgb(0 0 0 / 0.35);
+}
+.sharedlg__x {
+  position: absolute; top: 10px; right: 14px;
+  border: 0; background: none; padding: var(--space-4); cursor: pointer;
+  font-size: 22px; line-height: 1; color: var(--color-text-muted);
+}
+.sharedlg__x:hover { color: var(--color-text-primary); }
+
+.sharedlg__head  { display: flex; flex-direction: column; gap: var(--space-8); }
+.sharedlg__title { margin: 0; font-size: 24px; font-weight: 500; line-height: normal; color: #222; }
+.sharedlg__sub   { margin: 0; font-size: 14px; line-height: normal; color: #888; }
+
+/* Four 64px discs, evenly spread across the 400px content column. */
+.sharedlg__targets {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-8); margin: 0; padding: 0; list-style: none;
+}
+.sharedlg__target {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-8);
+  text-decoration: none;
+}
+.sharedlg__disc {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 64px; height: 64px; border-radius: 999px;
+  /* Brand colour at low alpha — the tinted disc behind each glyph. */
+  background: color-mix(in srgb, var(--brand) 14%, #fff);
+  color: var(--brand);
+  transition: transform 120ms ease;
+}
+.sharedlg__target:hover .sharedlg__disc { transform: translateY(-2px); }
+.sharedlg__target:focus-visible .sharedlg__disc { outline: 2px solid var(--brand); outline-offset: 2px; }
+.sharedlg__label { font-size: 12px; text-align: center; color: var(--brand); }
+
+.sharedlg__url {
+  display: flex; align-items: center; gap: var(--space-8);
+  height: 48px; padding: 0 18px;
+  border: 1px solid rgb(52 67 75 / 0.15); border-radius: 4px;
+}
+.sharedlg__url input {
+  flex: 1 1 auto; min-width: 0;
+  border: 0; outline: 0; background: none;
+  font: inherit; font-size: 14px; color: #8d9ca5;
+  text-overflow: ellipsis;
+}
+.sharedlg__url button {
+  flex: none; display: inline-flex; align-items: center;
+  border: 0; background: none; padding: var(--space-4); cursor: pointer;
+  color: var(--color-text-primary);
+}
+.sharedlg__url button:hover { color: var(--color-text-link); }
+.sharedlg__copied {
+  margin-top: -20px; min-height: 16px;
+  font-size: 12px; color: var(--color-text-positive);
+}
+
+@media (max-width: 640px) {
+  .sharedlg { padding: var(--space-20); gap: var(--space-20); }
+  .sharedlg__title { font-size: 20px; }
+  .sharedlg__disc { width: 52px; height: 52px; }
+}
+
+/* ============ header ============ */
+.header__bar {
+  height: 60px; width: 100%; position: sticky; top: 0; z-index: 20;
+  background: var(--color-bg-surface);
+  border-bottom: 0.3px solid var(--color-border-brand);
+}
+.header__inner {
+  height: 100%; max-width: 1440px; margin: 0 auto;
+  display: flex; align-items: center; padding: 0 34px;
+}
+.header__logo { flex: none; }
+/* 69px puts the nav at x=196 on the 1440 frame, matching Figma. It scrolls
+   horizontally rather than wrapping or pushing the avatar off-screen. */
+.header__nav {
+  margin-left: 69px; min-width: 0;
+  overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+}
+.header__nav::-webkit-scrollbar { display: none; }
+.header__actions { flex: none; margin-left: auto; padding-left: var(--space-16); display: flex; align-items: center; gap: var(--space-8); }
+
+/* ============ page layout ============ */
+/* Figma content column 1260 = main 955 + gap 16 + rail 289. The main column
+   flexes instead of being pinned to 955, so it reproduces the Figma widths
+   exactly at 1260 and narrows on its own below that. */
+.layout       { display: flex; flex-direction: row; align-items: flex-start; gap: var(--space-16); }
+.layout__main { flex: 1 1 0; min-width: 0; }
+.layout__rail { flex: 0 0 289px; width: 289px; }
+
+/* Card paddings that need to shrink on small screens (were inline styles). */
+.card--pad-lg    { padding: 22px 30px; }
+.card--pad-stock { padding: 29px 30px; }
+
+.page-title  { margin: 0; font-size: 40px; font-weight: 400; line-height: 1.2; }
+.page-standfirst { margin: 0; padding-left: 2px; font-size: 16px; line-height: 1.49; color: var(--color-text-secondary); }
+.stock__head { display: flex; justify-content: space-between; align-items: center; gap: var(--space-12); flex-wrap: wrap; }
+
+/* ============ responsive ============ */
+/* 1320 — shell loses its fixed width and gains gutters
+   1200 — nav tightens against the logo
+   1023 — right rail drops below the article, two-up
+    900 — title steps down
+    640 — single column, compact padding */
+
+@media (max-width: 1320px) {
+  .shell { width: 100%; padding: 0 24px; }
+}
+
+@media (max-width: 1200px) {
+  .header__nav { margin-left: var(--space-24); }
+}
+
+@media (max-width: 1023px) {
+  .layout { flex-direction: column; }
+  .layout__main { flex: 1 1 auto; width: 100%; }
+  .layout__rail {
+    flex: 1 1 auto; width: 100%;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-title { font-size: 32px; }
+  .tlsplit { flex-direction: column; }
+  .tlsplit__rail, .tlsplit__chart { flex: 1 1 auto; width: 100%; }
+  .pricepanel { height: auto; }
+  .chartwrap  { min-height: 240px; }
+}
+
+@media (max-width: 640px) {
+  .page  { gap: var(--space-20); }
+  .shell { padding: 0 var(--space-16); }
+  .header__inner { padding: 0 var(--space-16); }
+  .header__nav   { margin-left: var(--space-12); }
+
+  .page-title { font-size: 26px; }
+  .layout__rail { grid-template-columns: minmax(0, 1fr); }
+
+  .card--pad       { padding: var(--space-16); }
+  .card--pad-lg    { padding: 18px var(--space-16); }
+  .card--pad-stock { padding: var(--space-20) var(--space-16); }
+
+  /* Give the label all the slack; the price only needs its own width. */
+  .levels             { grid-template-columns: minmax(0, 1fr) auto; }
+  .levels__cell       { padding: var(--space-10) var(--space-12); font-size: 12px; min-height: 36px; }
+  .levels__cell--head { min-height: 34px; }
+
+  .ihero { flex-direction: column; align-items: flex-start; gap: var(--space-12); padding: 18px var(--space-16); }
+  .ihero__art { width: 120%; opacity: 0.1; }
+  .icard { padding: var(--space-16); }
+  .rhead { align-items: flex-start; }
+  .rcard__meta { font-size: 13px; }
+  .ccard { padding: var(--space-20) var(--space-16); gap: var(--space-20); }
+  .ctable { min-width: 660px; }
+  /* One label/value pair per row — four columns is unreadable at 375px. */
+  .kdata { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chart__tip { display: none; }
+  .tl { gap: var(--space-12); }
+  .tl__yearsbox { width: 46px; }
+  .tl__years { gap: var(--space-4); }
+  .tl__year { font-size: 14px; }
+  .tl__year--on { font-size: 19px; }
+  .tl__track {
+    max-height: 420px; padding: var(--space-8) var(--space-2) var(--space-8) var(--space-20);
+    background-position: 8px 0;
+  }
+  .tl__event::before { left: -16px; }
+}
