@@ -10,12 +10,13 @@ The npm package lives in **`app/`**, not the repo root. Run everything from
 
 ## ⚠️ Read this before touching anything
 
-1. **This folder is NOT a git repository.** There is no history and nothing to
-   revert to. The files are the only copy of the work. Offer `git init` before
-   any large or risky change.
+1. **This IS a git repository** as of 2026‑09‑02 (branch `main`, first commit
+   `88263dc`). History exists — use `git diff` before a risky edit and
+   `git log --oneline` to see what moved. There is **no remote**, so the only
+   copy still lives on this disk; pushing somewhere is worth doing.
 2. **A stale `askanalyst-web.zip` sits beside the folder** (written 2025‑09‑01
    16:59, before most of this work). Re‑extracting it silently destroys
-   everything. Never suggest it as a recovery route.
+   uncommitted work. Never suggest it as a recovery route — use git instead.
 3. **Never run `npm run build` while the dev server is running.** They share
    `.next`; building wipes the dev server's CSS chunk and the app serves
    unstyled with `layout.css` 404ing — it looks like a CSS regression but is a
