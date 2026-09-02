@@ -12,17 +12,29 @@ The npm package lives in **`app/`**, not the repo root. Run everything from
 
 1. **This IS a git repository** as of 2026‑09‑02 (branch `main`, first commit
    `88263dc`). History exists — use `git diff` before a risky edit and
-   `git log --oneline` to see what moved. There is **no remote**, so the only
-   copy still lives on this disk; pushing somewhere is worth doing.
+   `git log --oneline` to see what moved. It now has a remote:
+   `github.com/Zia128111/askanalyst-web`, **public**, and work goes straight to
+   `main`. The repo being public is worth remembering before committing anything
+   personal — `app/public/logos/avatar.png` is the user's own photo, pushed with
+   their explicit go-ahead.
 2. **A stale `askanalyst-web.zip` sits beside the folder** (written 2025‑09‑01
    16:59, before most of this work). Re‑extracting it silently destroys
    uncommitted work. Never suggest it as a recovery route — use git instead.
-3. **Never run `npm run build` while the dev server is running.** They share
-   `.next`; building wipes the dev server's CSS chunk and the app serves
-   unstyled with `layout.css` 404ing — it looks like a CSS regression but is a
-   clobbered dev build. Correct sequence:
-   `preview_stop` → `npm run build` → `rm -rf .next` → `preview_start`.
-   For a types-only check use `npx tsc --noEmit`, which leaves `.next` alone.
+3. **`npm run build` is now safe to run while a dev server is up** (fixed
+   2026‑09‑02). `next.config.mjs` is a phase function: the production build uses
+   `distDir: 'out'` and `next dev` keeps `.next`, so they no longer share a
+   directory. This used to wipe the dev server's CSS chunk and serve the app
+   unstyled with `layout.css` 404ing — a "CSS regression" that was really a
+   clobbered dev build. Verified by building with two dev servers live; both
+   kept serving. Two caveats:
+   - With `output: 'export'` the build writes the finished site **into**
+     `distDir`, which is why it is named `out` rather than something like
+     `.next-build`. Don't "tidy" it back to `.next`.
+   - Editing `next.config.mjs` restarts every dev server watching this folder,
+     including another session's. They 404 briefly, then recover on their own.
+
+   For a types-only check `npx tsc --noEmit` is still fastest and touches
+   neither directory.
 
 ## Running it
 
@@ -30,7 +42,9 @@ The npm package lives in **`app/`**, not the repo root. Run everything from
 npm install          # in app/
 npm run dev          # http://localhost:3000
 ```
-`.claude/launch.json` (repo root) starts it via `npm --prefix app run dev`.
+`.claude/launch.json` (repo root) starts it via `npm --prefix app run dev`. It
+carries `"autoPort": true` so a second session picks a free port instead of
+colliding with a dev server already on 3000.
 
 ---
 
@@ -51,13 +65,19 @@ and designed in-system where one does not.
 | `/company/timeline` | `Company / Detail / Timeline` 4893:1531 | ✅ |
 | `/company/reports` | `Company / Detail / Reports` 4893:1800 | ✅ |
 | `/company/consensus` | `Company / Detail / Consensus` 4893:2059 | ✅ multi-company list |
+| `/broker/[slug]` | `Broker / Detail / Overview` 4902:4488 | ✅ one page per house, 14 built |
 
-`/` is a redirect stub to `/research/market` (`app/app/page.tsx`). Note this
-predates the library at `/research`, which is now the nav landing for Research
-Report — so the site root and the nav item go to different places. Left as-is;
-worth confirming with the user which they want.
+`/` is a redirect stub to **`/research`** (`app/app/page.tsx`) — the same place
+the `Research Report` nav item goes. It used to point at `/research/market`, so
+the root and the nav disagreed; the user chose the library on 2026‑09‑02.
 
-Not built yet: **`Broker / Detail / Overview`** (Figma 4902:4488).
+Every Figma frame in the file is now built.
+
+**Broker pages are reached by clicking a broker name**, not from the nav. Every
+broker pill on an insight or report card, every row of `Top Brokers` in the
+research rail, and the broker column of the consensus table now link to
+`/broker/<slug>`. The slug is the logo key from `data/brokers.ts`, so the two
+spellings of Alpha Capital land on one page rather than two.
 
 Nav wiring (`components/layout/SiteNav.tsx`): only two items link anywhere —
 `Research Report → /research`, `AI Powered Insights → /company/insights`. The
@@ -103,8 +123,14 @@ interactions had something to act on. Placeholder bodies literally start with
 | `data/market.ts` | all of it (Figma) | — |
 | `data/company-report.ts` | all of it (Figma KOHC) | — |
 | `data/insights.ts` | 3 insights, 3 reports, 2 timeline events (2025), 2 LUCK broker rows | extra timeline years, `moreReports`, 5 of 6 `consensusEntries`, price series, PSX + broker lists |
-| `data/reports.ts` | the Weekly Report + KOHC entries | the other 19 |
+| `data/reports.ts` | the Weekly Report + KOHC entries | the other 61 |
 | `data/brokers.ts` | broker → logo filename registry | — |
+| `data/broker.ts` | nothing authored — every figure is derived | — |
+
+`data/reports.ts` was grown from 21 to 63 entries on 2026‑09‑02 so each of the
+14 houses has a coverage record deep enough for its `/broker/<slug>` page to say
+something. The added block is marked `── broker coverage fill ──` and follows
+the same rules as the block above it.
 
 **Rules for placeholder data**
 - Never let fabricated broker calls about real PSX companies read as fact.
@@ -146,6 +172,33 @@ date-relative measures back from **the newest item in the set**, not from today
   coverage span + busiest year; Reports → count by report type; Consensus →
   Buy/Hold/Sell split. The generic consensus roll-up was wrong on the other
   three tabs because those tabs aren't about ratings.
+- **All interaction lives in one `interaction` block in `globals.css`**, with its
+  own `:root` for motion tokens (`--ease`, `--dur-1/2`, `--lift-sm/md`, `--ring`)
+  — the generated Figma token block at the top of the file stays untouched.
+  Nothing moves more than 3px or runs longer than 180ms; colour always carries
+  the message and movement only reinforces it, so the whole layer degrades to
+  plain colour changes under `prefers-reduced-motion`.
+- **`.trow` is `display: contents`.** A CSS-grid table has no row box, so the
+  four data tables (`.levels`, `.kdata`, `.fintable`, `.ctable`) wrap each row in
+  a `.trow` that lays out nothing but still takes the hover — which is what
+  drives the row highlight. It also gives the cells the `role="row"` they were
+  missing, so the ARIA is now valid.
+- **`SiteNav` is class-based, not inline-styled.** Inline styles cannot carry
+  `:hover` or `:focus-visible`, the same reason the responsive rules are classes.
+- **Broker rail panels never link out.** `RailMore` in `broker/BrokerRail.tsx` is
+  a button that expands the panel in place, not an anchor. The only screen the
+  Coverage panel could reach is `/company/consensus`, which cannot be filtered to
+  one house — so a `View all Calls` link would land on more than it promised.
+- **`INDEX_SYMBOLS` in `data/broker.ts` keeps `KSE100` out of coverage counts.**
+  A report's `companies` field carries whatever the report is about, and for the
+  weeklies and strategy notes that is the index. Without the filter a house that
+  only writes weeklies "covers" KSE100 and it appears in Companies Covered.
+- **The donut legend is `auto-fit`, not the two fixed columns Figma draws.**
+  Figma's labels are single words; ours are report-type names, and
+  `Analyst Briefing` clipped at half of the 289 rail.
+- **`Avatar` (`layout/Avatar.tsx`)** is the header account mark. Drop
+  `public/logos/avatar.png` (128×128) in and it appears; the grey Figma circle
+  shows until then. Same mount-time 404 guard as `BrokerMark`.
 - **`BrokerMark` / `CompanyArt`** resolve logos by name via `data/brokers.ts`
   and render **nothing** when the file is missing. They re-check the element on
   mount because the markup is server-rendered — a 404 fires before React
@@ -190,13 +243,22 @@ date-relative measures back from **the newest item in the set**, not from today
 
 ## Next task
 
-Nothing is mid-flight — the last change (card Share buttons opening the share
-dialog) is finished, verified and built clean.
+Nothing is mid-flight. `/broker/[slug]` and the interaction layer are finished,
+verified in the browser, and **built clean**: `npm run build` emits 23 pages into
+`out/`, including all 14 broker pages.
+
+A full audit ran on 2026‑09‑02 across all 22 routes: every route 200, no console
+errors, no horizontal overflow at 1450 / 768 / 375, no missing assets, no dead
+broker links. Four things it turned up were fixed (`KSE100` counted as a covered
+company, a clipped donut label, the rail heading outranking its siblings, three
+identical report titles on one broker page); the user chose to keep the search
+box on the broker page rather than match the frame exactly.
 
 **Ask the user what to build next.** The obvious candidates:
-- `Broker / Detail / Overview` (Figma 4902:4488) — the last unbuilt frame.
 - Fix issue 1 above (timeline marker ↔ year mismatch).
 - Make the remaining library cards clickable.
+- Add a broker axis to the consensus screen, which would let the Coverage panel
+  link out to genuinely filtered results.
 
 ---
 
