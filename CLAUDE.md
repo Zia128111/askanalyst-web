@@ -25,13 +25,22 @@ The npm package lives in **`app/`**, not the repo root. Run everything from
    `distDir: 'out'` and `next dev` keeps `.next`, so they no longer share a
    directory. This used to wipe the dev server's CSS chunk and serve the app
    unstyled with `layout.css` 404ing — a "CSS regression" that was really a
-   clobbered dev build. Verified by building with two dev servers live; both
-   kept serving. Two caveats:
+   clobbered dev build. Three caveats:
    - With `output: 'export'` the build writes the finished site **into**
      `distDir`, which is why it is named `out` rather than something like
      `.next-build`. Don't "tidy" it back to `.next`.
    - Editing `next.config.mjs` restarts every dev server watching this folder,
      including another session's. They 404 briefly, then recover on their own.
+   - **Two `next dev` processes must not share `.next`.** They overwrite each
+     other's chunks and both start throwing `Cannot find module './819.js'` with
+     webpack `ENOENT` renames; neither recovers while the other is running. The
+     `distDir` split above fixed build-vs-dev, not dev-vs-dev — that is a
+     separate fix in the same file: a dev server on a port other than 3000 gets
+     `.next-dev-<port>`, so `npm run dev` keeps `.next` and a second session
+     stays out of its way. If you hit this anyway, stop the extra server; the
+     remaining one recompiles and recovers on its own. Deleting `.next` while a
+     server is live does **not** help — it leaves that server serving 404s until
+     it is restarted.
 
    For a types-only check `npx tsc --noEmit` is still fastest and touches
    neither directory.

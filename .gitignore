@@ -2,9 +2,11 @@
 node_modules/
 
 # Next.js build + static export output (regenerate with `npm run build`)
-# `.next` belongs to the dev server, `out/` to the production build — they are
-# kept apart so a build cannot clobber a running dev server (next.config.mjs).
+# `.next` belongs to the dev server, `out/` to the production build, and
+# `.next-dev-<port>` to a second dev server — kept apart so neither a build nor
+# another session can clobber a running dev server (see next.config.mjs).
 .next/
+.next-dev-*/
 out/
 
 # typescript incremental build info
