@@ -7,9 +7,15 @@ const PRODUCTION_BUILD = 'phase-production-build';
    each other's chunks, which surfaces as `Cannot find module './819.js'` and
    webpack `ENOENT` rename errors — both servers 500 and neither recovers without
    a restart. A dev server started on a non-default port is a second session, so
-   it gets its own directory. The plain `npm run dev` keeps `.next`. */
+   it gets its own directory and the plain `npm run dev` keeps `.next`.
+
+   The name is fixed rather than per-port on purpose: Next appends the dist dir's
+   types path to `tsconfig.json` include, so a per-port name would add a fresh
+   line for every port ever used. One stable name means one committed line. A
+   third concurrent dev server would collide with the second — at that point,
+   stop one. */
 const devDistDir = process.env.PORT && process.env.PORT !== '3000'
-  ? `.next-dev-${process.env.PORT}`
+  ? '.next-dev-alt'
   : '.next';
 
 /** @type {(phase: string) => import('next').NextConfig} */
