@@ -1,5 +1,9 @@
 # Ask Analyst — Next.js frontend
 
+> **Project state, decisions, known issues and next steps live in
+> [`../CLAUDE.md`](../CLAUDE.md).** This file covers how to run the app, the
+> token layer and the Figma ↔ code mapping only.
+
 Generated from the Figma file `Ask Analyst - Design`, page **Research Page - Design**,
 after the LLM-readiness cleanup. Every colour, size and spacing value traces back to a
 variable in the Figma collection `Ask Analyst`.
@@ -8,7 +12,7 @@ variable in the Figma collection `Ask Analyst`.
 
 ```bash
 npm install
-npm run dev          # http://localhost:3000/research/market
+npm run dev          # http://localhost:3000/research
 ```
 
 ## Static HTML export
@@ -30,12 +34,15 @@ render unstyled if opened directly.
 app/
   globals.css              tokens (generated) + primitives
   layout.tsx               Lato webfont, root shell
-  research/market/         Research / Detail / Market
+  research/                report library · market · company detail
+  company/                 insights · timeline · reports · consensus
 components/
-  layout/   Header · Logo · SiteNav · PageShell
-  ui/       Card · Badge · Chip · Dropdown · Icon
-  research/ SectionHeader · StockCard · Sidenote · KeyLevelsTable · Sidebar
-data/       page content extracted verbatim from Figma
+  layout/    Header · Logo · SiteNav · PageShell
+  ui/        Card · Badge · Icon · FilterMenu · FilterRow · ShareDialog · BrokerMark · CompanyArt
+  research/  SectionHeader · StockCard · Sidenote · KeyLevelsTable · ResultTables · NoteRef · Sidebar
+  insights/  InsightsShell · InsightCard · InsightsFilters · ScopeBand · Timeline · ConsensusCard
+  reports/   ReportCard · ReportsBrowser · ReportsRail
+data/        page content — see CLAUDE.md for what is Figma-real vs placeholder
 ```
 
 ## Token layer
@@ -46,9 +53,6 @@ data/       page content extracted verbatim from Figma
 - 90 colour custom properties (`--color-text-primary`, `--color-chart-series-3`, …)
 - spacing / radius / stroke / font-size scales
 - 46 type-ramp classes matching the Figma text styles 1:1 (`.heading-card-title`, `.body-paragraph`)
-
-`data/tokens.ts` exposes the same values to TypeScript, including `chartSeries`
-as an ordered array ready for Recharts or D3.
 
 ## Figma ↔ code mapping
 
@@ -68,11 +72,12 @@ as an ordered array ready for Recharts or D3.
 
 ## Known placeholders
 
-- **Company / broker logos** render as neutral squares. Export them from Figma as SVG
-  into `public/logos/` and swap the placeholder in `RelatedList` / `RelatedReports`.
 - **The PSX promo artwork** is a gradient stand-in for the phone illustration.
-- **Charts are not implemented** — the Figma charts are static vector art. `chartSeries`
-  in `tokens.ts` gives the correct palette when you wire up a real charting library.
+- **Most page content is placeholder fill**, marked `"Placeholder entry."` in the
+  data files — see CLAUDE.md for the real-vs-placeholder breakdown.
+
+Company and broker logos are all present, and the price charts on the Timeline
+tab are real inline SVG rather than the static art originally noted here.
 
 ## Screens
 
@@ -95,13 +100,10 @@ The Figma-exported SVGs live at **`public/logos/`** (project root), not `app/pub
 Next.js only serves static files from a `public/` folder at the root, so anything under
 `app/public/` is invisible at runtime. Files present:
 
-```
-public/logos/dgkc.svg  mlcf.svg  fccl.svg  chcc.svg  pioc.svg
-             topline.svg  arif-habib.svg
-```
-
-Referenced from `data/market.ts` and rendered through `CompanyMark` in
-`components/research/Sidebar.tsx`, which falls back to a neutral square when a mark is absent.
+Broker logos resolve by name through `data/brokers.ts` and render via
+`components/ui/BrokerMark.tsx`; company marks go through `components/ui/CompanyArt.tsx`.
+Both render nothing when a file is missing, so the registry can run ahead of the assets.
+`CompanyMark` in `components/research/Sidebar.tsx` still serves the detail-page rails.
 
 ### Where to save each image
 
@@ -122,6 +124,6 @@ If you'd rather use different filenames, they're set in one place each:
 **Export settings in Figma:** select the layer → Export panel → `+` → choose SVG (vector) or PNG at 3x
 (raster). For `psx-app.svg` select the `Layer 2` / `iPhone 16 Wrapper` group, not the whole card.
 
-### Still needed for the remaining screens
-
-**AKD Securities**, **JS Global**, **Lucky Cement**, **Kohat Cement** — same folder, SVG preferred.
+All company and broker logos referenced by the current screens are present.
+Adding a new broker means dropping `<name>.svg` into `public/logos/` and adding
+one line to `data/brokers.ts`.
