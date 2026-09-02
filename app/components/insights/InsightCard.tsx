@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Bell, Document } from '../ui/Icon';
 import { ShareButton } from '../ui/ShareDialog';
 import { BrokerMark } from '../ui/BrokerMark';
+import { brokerHref } from '@/data/brokers';
 import type { Insight, Sentiment } from '@/data/insights';
 
 /* Re-exported so the card family keeps a single import point. */
@@ -15,11 +16,25 @@ const SENTIMENT_TONE: Record<Sentiment, string> = {
   Positive: 'rating--positive', Negative: 'rating--negative', Neutral: 'rating--neutral',
 };
 
-/** Figma `Insight Rating` pill. `mark` is the 12px glyph or broker logo. */
-export function RatingPill({ tone, mark, children }: {
-  tone: string; mark?: React.ReactNode; children: React.ReactNode;
+/** Figma `Insight Rating` pill. `mark` is the 12px glyph or broker logo.
+ *  Given an `href` it becomes a link — how the broker pills reach the house's
+ *  overview screen. */
+export function RatingPill({ tone, mark, href, children }: {
+  tone: string; mark?: React.ReactNode; href?: string; children: React.ReactNode;
 }) {
-  return <span className={`rating ${tone}`}>{mark}{children}</span>;
+  const body = <>{mark}{children}</>;
+  return href
+    ? <a className={`rating rating--link ${tone}`} href={href}>{body}</a>
+    : <span className={`rating ${tone}`}>{body}</span>;
+}
+
+/** The broker pill, wired to that house's overview page. */
+export function BrokerPill({ name }: { name: string }) {
+  return (
+    <RatingPill tone="rating--neutral" href={brokerHref(name)} mark={<BrokerMark name={name} />}>
+      {name}
+    </RatingPill>
+  );
 }
 
 export function SentimentPill({ value }: { value: Sentiment }) {
@@ -39,9 +54,7 @@ export function InsightCard({ item, alert = true }: { item: Insight; alert?: boo
         <div className="icard__pills">
           <RatingPill tone="rating--brand" mark={<Document size={12} />}>{item.category}</RatingPill>
           <SentimentPill value={item.sentiment} />
-          <RatingPill tone="rating--neutral" mark={<BrokerMark name={item.broker} />}>
-            {item.broker}
-          </RatingPill>
+          <BrokerPill name={item.broker} />
         </div>
         <span className="icard__source">{item.source}</span>
       </div>

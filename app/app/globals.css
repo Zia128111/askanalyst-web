@@ -265,6 +265,11 @@ svg { display: block; flex: none; }
   color: var(--color-text-muted);
   font-size: 13px; font-weight: 700; line-height: 1;
 }
+/* Chip that carries a link — the broker chips in the research rail. */
+a.chip--link       { text-decoration: none; }
+a.chip--link:hover { border-color: var(--color-border-brand); color: var(--color-text-link); }
+.rail__brokerlink       { text-decoration: none; color: inherit; }
+.rail__brokerlink:hover .rail__name { color: var(--color-text-link); }
 .badge {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--space-4);
   padding: var(--space-4) var(--space-10);
@@ -412,6 +417,10 @@ svg { display: block; flex: none; }
 .rating--warning  { background: var(--color-bg-warning-subtle);  border-color: var(--color-accent-amber);    color: var(--color-text-amber); }
 .rating--neutral  { background: var(--color-bg-subtle);          border-color: var(--color-border-strong);   color: var(--color-text-muted); }
 .rating__mark     { width: 12px; height: 12px; flex: none; object-fit: contain; }
+/* Broker pills link to that house's overview screen. */
+a.rating--link         { text-decoration: none; }
+a.rating--link:hover   { border-color: var(--color-border-brand); color: var(--color-text-link); }
+a.rating--link:hover span { color: var(--color-text-link) !important; }
 
 /* ============ insights hero ============ */
 /* Figma `Insights Header Image` — 1259x120, the sparkline sits behind at 15%. */
@@ -1008,6 +1017,100 @@ a.rail__link:hover { color: var(--color-text-link); text-decoration: underline; 
 .page-standfirst { margin: 0; padding-left: 2px; font-size: 16px; line-height: 1.49; color: var(--color-text-secondary); }
 .stock__head { display: flex; justify-content: space-between; align-items: center; gap: var(--space-12); flex-wrap: wrap; }
 
+/* ============ broker overview ============ */
+/* Figma `Broker / Detail / Overview` (4902:4488). The hero reuses `.ihero`
+   wholesale — only the sparkle is swapped for the house's own mark. */
+
+.bhero__body { flex-direction: row; align-items: center; gap: 16px; max-width: none; }
+.bhero__mark { width: 64px; height: 64px; flex: none; object-fit: contain; }
+
+/* Figma `Frame 41146` — four equal blocks, 142 tall, across the content column. */
+.bstats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+}
+.bstat {
+  display: flex; flex-direction: column; justify-content: center; gap: var(--space-8);
+  min-height: 142px; padding: var(--space-5) 31px;
+  background: var(--color-bg-brand-subtle);
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-md);
+}
+.bstat__value { font-size: 32px; font-weight: 700; line-height: 1.1; }
+.bstat__label { font-size: 20px; color: var(--color-text-secondary); }
+
+/* Figma `Path 672`. */
+.brule { width: 100%; height: 0; margin: 0; border: 0; border-top: 1px solid var(--color-border-grey-5); }
+
+.bsection {
+  margin: 0; font-size: 16px; font-weight: 700; line-height: 19px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* ── right rail panels ── */
+.brail { display: flex; flex-direction: column; }
+.brail__mark  { width: 50px; height: 50px; flex: none; object-fit: contain; }
+.brail__name  { margin: 0; font-size: 20px; font-weight: 700; line-height: 1.49; }
+.brail__title { margin: 0; padding: var(--space-5); font-size: 16px; font-weight: 700; }
+.brail__empty { margin: 0; font-size: 14px; line-height: 1.49; color: var(--color-text-muted); }
+.brail__calls { display: flex; flex-wrap: wrap; gap: var(--space-5); }
+
+.brail__list { display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; list-style: none; }
+/* Hairlines between rows only — the panel already has its own outline. */
+.brail__row {
+  display: flex; align-items: flex-start; gap: var(--space-8);
+  padding: var(--space-12) 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.brail__row:first-child { border-top: 0; padding-top: 0; }
+.brail__logo    { width: 32px; height: 32px; flex: none; object-fit: contain; }
+.brail__rowbody { gap: var(--space-2); min-width: 0; flex: 1 1 auto; }
+.brail__rowtitle { font-size: 14px; line-height: 1.35; color: var(--color-text-secondary); }
+.brail__rowmeta  { font-size: 12px; color: var(--color-text-muted); }
+/* The call sits at 12px so a three-column row still fits the 289 rail. */
+.brail__call { font-size: 12px; align-self: flex-start; }
+
+.brail__companies { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.brail__company {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-10);
+  padding: var(--space-10) var(--space-5);
+  border-top: 1px solid var(--color-border-subtle);
+}
+.brail__company:first-child { border-top: 0; }
+.brail__companyname { font-size: 16px; line-height: 1.2; }
+
+.brail__foot {
+  margin-top: auto; padding-top: 18px;
+  border-top: 1px solid var(--color-border-subtle);
+  text-align: center;
+}
+.brail__more {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 16px; line-height: 24px;
+  color: var(--color-text-near-black); text-decoration: none;
+}
+.brail__more:hover { color: var(--color-text-link); }
+
+/* Figma `Frame 41172` — 160 ring with a 113 hole, legend two-up beneath. */
+.donut { display: block; width: 160px; max-width: 100%; height: auto; margin: 0 auto; }
+/* Figma sets this two-up, but its labels are one word ("Sector", "Budget") and
+   ours are report-type names ("Analyst Briefing"), which clip at half of the
+   289 rail. `auto-fit` keeps the two columns wherever they actually fit — the
+   rail's two-up grid below 1023 — and falls to one in the narrow rail. */
+.donut__legend {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-8);
+  margin: 0; padding: 0; list-style: none;
+}
+.donut__key   { display: flex; align-items: center; gap: var(--space-5); min-width: 0; }
+.donut__dot   { width: 12px; height: 12px; flex: none; border-radius: 999px; }
+.donut__count { font-size: 12px; font-weight: 700; }
+.donut__label {
+  font-size: 12px; color: var(--color-text-secondary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
 /* ============ responsive ============ */
 /* 1320 — shell loses its fixed width and gains gutters
    1200 — nav tightens against the logo
@@ -1035,6 +1138,8 @@ a.rail__link:hover { color: var(--color-text-link); text-decoration: underline; 
 
 @media (max-width: 900px) {
   .page-title { font-size: 32px; }
+  /* Four 142-tall blocks stop fitting well before the rail drops. */
+  .bstats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
   .tlsplit { flex-direction: column; }
   .tlsplit__rail, .tlsplit__chart { flex: 1 1 auto; width: 100%; }
   .pricepanel { height: auto; }
@@ -1061,6 +1166,10 @@ a.rail__link:hover { color: var(--color-text-link); text-decoration: underline; 
 
   .ihero { flex-direction: column; align-items: flex-start; gap: var(--space-12); padding: 18px var(--space-16); }
   .ihero__art { width: 120%; opacity: 0.1; }
+  .bhero__mark { width: 44px; height: 44px; }
+  .bstat { min-height: 104px; padding: var(--space-16); }
+  .bstat__value { font-size: 26px; }
+  .bstat__label { font-size: 16px; }
   .icard { padding: var(--space-16); }
   .rhead { align-items: flex-start; }
   .rcard__meta { font-size: 13px; }

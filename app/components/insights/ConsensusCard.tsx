@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { Flash } from '../ui/Icon';
 import { RatingPill, BrokerMark } from './InsightCard';
+import { brokerHref } from '@/data/brokers';
 import * as D from '@/data/insights';
 import type { Call, ConsensusEntry } from '@/data/insights';
 
@@ -96,7 +97,8 @@ export function ConsensusCard({ entry }: { entry: ConsensusEntry }) {
           {shown.map((r) => (
             <React.Fragment key={r.broker}>
               <div className="ctable__cell" role="cell">
-                <RatingPill tone="rating--neutral" mark={<BrokerMark name={r.broker} />}>
+                <RatingPill tone="rating--neutral" href={brokerHref(r.broker)}
+                            mark={<BrokerMark name={r.broker} />}>
                   <span style={{ fontWeight: 400, fontSize: 16, color: 'var(--color-text-primary)' }}>{r.broker}</span>
                 </RatingPill>
               </div>

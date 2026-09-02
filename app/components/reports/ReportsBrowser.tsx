@@ -101,11 +101,18 @@ function groupByMonth(items: Report[]) {
   return groups;
 }
 
-export function ReportsBrowser({ pageSize = 6 }: { pageSize?: number }) {
+/** `scope` narrows the library to one house before the filters run — the broker
+ *  detail screen passes its own reports in. The broker block then drops out of
+ *  the filter row, since a filter that can only widen past the scope would lie
+ *  about what the list contains. */
+export function ReportsBrowser({ pageSize = 6, scope }: {
+  pageSize?: number; scope?: Report[];
+}) {
   const [f, setF] = React.useState<State>(NONE);
   const [shown, setShown] = React.useState(pageSize);
 
-  const pool = React.useMemo(() => applyFilters(R.reports, f), [f]);
+  const source = scope ?? R.reports;
+  const pool = React.useMemo(() => applyFilters(source, f), [source, f]);
   React.useEffect(() => { setShown(pageSize); }, [f, pageSize]);
 
   const cards = pool.slice(0, shown);
@@ -120,7 +127,7 @@ export function ReportsBrowser({ pageSize = 6 }: { pageSize?: number }) {
     (v: string[]) => setF((prev) => ({ ...prev, [k]: v[0] ?? '' }));
   const setQ = (v: string) => setF((prev) => ({ ...prev, q: v }));
   const reset = () => { setF(NONE); setShown(pageSize); };
-  const filtered = pool.length !== R.reports.length || f.q.trim() !== '';
+  const filtered = pool.length !== source.length || f.q.trim() !== '';
 
   const fields: FilterField[] = [
     { key: 'type',    label: 'All Types',     menu: <FilterMenu multiple label="All Types"     options={TYPE_OPTS}    values={f.type}    onChange={setMulti('type')} searchable searchPlaceholder="Search report types…" /> },
@@ -130,7 +137,7 @@ export function ReportsBrowser({ pageSize = 6 }: { pageSize?: number }) {
     { key: 'rating',  label: 'Any Rating',    menu: <FilterMenu multiple label="Any Rating"    options={RATING_OPTS}  values={f.rating}  onChange={setMulti('rating')} /> },
     { key: 'period',  label: 'All Time',      menu: <FilterMenu label="All Time"   options={PERIOD_OPTS} values={f.period ? [f.period] : []}   onChange={setOne('period')} /> },
     { key: 'results', label: '25 Results',    menu: <FilterMenu label="25 Results" options={RESULT_OPTS} values={f.results ? [f.results] : []} onChange={setOne('results')} /> },
-  ];
+  ].filter((field) => !(scope && field.key === 'broker'));
 
   return (
     <div className="col" style={{ gap: 20 }}>
@@ -153,7 +160,7 @@ export function ReportsBrowser({ pageSize = 6 }: { pageSize?: number }) {
 
       <div className="rhead">
         <p className="resultcount">
-          Showing {cards.length} of {R.reports.length} reports
+          Showing {cards.length} of {source.length} reports
           {filtered && <button className="resetlink" type="button" onClick={reset}>Clear all</button>}
         </p>
         <FilterMenu label="Newest first" options={SORT_OPTS} values={[f.sort]} onChange={setOne('sort')} />

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { RatingPill } from '../insights/InsightCard';
-import { BrokerMark } from '../ui/BrokerMark';
+import { RatingPill, BrokerPill } from '../insights/InsightCard';
 import { Download, Document } from '../ui/Icon';
 import { ShareButton } from '../ui/ShareDialog';
 import type { Report, Rating } from '@/data/reports';
@@ -26,9 +25,7 @@ export function ReportCard({ report }: { report: Report }) {
       <div className="icard__meta">
         <div className="icard__pills">
           <RatingPill tone="rating--brand" mark={<Document size={12} />}>{report.type}</RatingPill>
-          <RatingPill tone="rating--neutral" mark={<BrokerMark name={report.broker} />}>
-            {report.broker}
-          </RatingPill>
+          <BrokerPill name={report.broker} />
           {rating && (
             <RatingPill tone={RATING_TONE[rating]}>{RATING_GLYPH[rating]} {rating}</RatingPill>
           )}

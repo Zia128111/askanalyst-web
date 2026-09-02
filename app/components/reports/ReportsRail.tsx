@@ -3,6 +3,7 @@ import { Card } from '../ui/Card';
 import { Chip } from '../ui/Badge';
 import { ArrowRight } from '../ui/Icon';
 import { BrokerMark } from '../ui/BrokerMark';
+import { brokerHref } from '@/data/brokers';
 import { ExploreCTA } from '../research/Sidebar';
 import { longDate } from './ReportCard';
 import * as R from '@/data/reports';
@@ -23,7 +24,9 @@ export function ReportsRail() {
                     the date sits under the heading as plain text. */}
                 <span className="col" style={{ gap: 6, minWidth: 0 }}>
                   <span className="row center rail__chips" style={{ gap: 5 }}>
-                    <Chip icon={<BrokerMark name={r.broker} />}>{r.broker}</Chip>
+                    <a className="chip chip--link" href={brokerHref(r.broker)}>
+                      <BrokerMark name={r.broker} />{r.broker}
+                    </a>
                   </span>
                   {r.href
                     ? <a className="rail__link" href={r.href}>{r.title}</a>
@@ -42,10 +45,11 @@ export function ReportsRail() {
           <ul className="col rail__list" style={{ gap: 12, listStyle: 'none', margin: 0 }}>
             {R.topBrokers.slice(0, 6).map((b) => (
               <li key={b.broker} className="rail__between">
-                <span className="row center" style={{ gap: 9, minWidth: 0 }}>
+                <a className="row center rail__brokerlink" href={brokerHref(b.broker)}
+                   style={{ gap: 9, minWidth: 0 }}>
                   <BrokerMark name={b.broker} className="rail__mark" />
                   <span className="rail__name">{b.broker}</span>
-                </span>
+                </a>
                 <Chip>{b.count}</Chip>
               </li>
             ))}

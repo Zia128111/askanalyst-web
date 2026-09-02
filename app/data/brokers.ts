@@ -36,3 +36,16 @@ function slug(name: string) {
 export function brokerLogoSrc(name: string) {
   return `/logos/${BROKER_LOGO[name] ?? slug(name)}.svg`;
 }
+
+/* ── URL identity ──
+   The logo key doubles as the broker's URL slug, so the two spellings of Alpha
+   Capital land on one page rather than two. Houses with no logo yet fall back
+   to the slugified name — they still get a page, just no mark on it. */
+
+export function brokerSlug(name: string) {
+  return BROKER_LOGO[name] ?? slug(name);
+}
+
+export function brokerHref(name: string) {
+  return `/broker/${brokerSlug(name)}`;
+}
