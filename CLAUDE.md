@@ -51,6 +51,11 @@ and designed in-system where one does not.
 | `/company/reports` | `Company / Detail / Reports` 4893:1800 | ✅ |
 | `/company/consensus` | `Company / Detail / Consensus` 4893:2059 | ✅ multi-company list |
 
+`/` is a redirect stub to `/research/market` (`app/app/page.tsx`). Note this
+predates the library at `/research`, which is now the nav landing for Research
+Report — so the site root and the nav item go to different places. Left as-is;
+worth confirming with the user which they want.
+
 Not built yet: **`Broker / Detail / Overview`** (Figma 4902:4488).
 
 Nav wiring (`components/layout/SiteNav.tsx`): only two items link anywhere —
