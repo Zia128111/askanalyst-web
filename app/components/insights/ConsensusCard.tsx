@@ -94,8 +94,10 @@ export function ConsensusCard({ entry }: { entry: ConsensusEntry }) {
           {COLUMNS.map((c, i) => (
             <div key={c} className={`ctable__cell ctable__cell--head ${ALIGN[i]}`} role="columnheader">{c}</div>
           ))}
+          {/* `.trow` is `display: contents` — the `role="row"` the cells were
+              missing, and the hover target for the row highlight. */}
           {shown.map((r) => (
-            <React.Fragment key={r.broker}>
+            <div className="trow" key={r.broker} role="row">
               <div className="ctable__cell" role="cell">
                 <RatingPill tone="rating--neutral" href={brokerHref(r.broker)}
                             mark={<BrokerMark name={r.broker} />}>
@@ -108,7 +110,7 @@ export function ConsensusCard({ entry }: { entry: ConsensusEntry }) {
               <div className="ctable__cell ctable__cell--mid" role="cell">{r.analyst}</div>
               <div className="ctable__cell ctable__cell--end tabular" role="cell">{r.target}</div>
               <div className="ctable__cell ctable__cell--end tabular" role="cell">{r.revised}</div>
-            </React.Fragment>
+            </div>
           ))}
         </div>
       </div>

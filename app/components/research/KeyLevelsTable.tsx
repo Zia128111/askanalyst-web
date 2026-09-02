@@ -9,8 +9,11 @@ export function KeyLevelsTable({ rows }: { rows: LevelRow[] }) {
     <div className="levels" role="table" aria-label="Key levels">
       <div className="levels__cell levels__cell--head" role="columnheader">Level</div>
       <div className="levels__cell levels__cell--head levels__cell--num" role="columnheader">Price</div>
+      {/* `.trow` is `display: contents` — it adds the `role="row"` the cells
+          were missing and gives the grid a row to hover, without adding a box
+          that would break the two-column layout. */}
       {rows.map((r) => (
-        <React.Fragment key={r.label}>
+        <div className="trow" key={r.label} role="row">
           <div className="levels__cell" role="cell">{r.label}</div>
           <div
             className={`levels__cell levels__cell--num ${r.tone ? `levels__cell--${r.tone}` : ''}`}
@@ -18,7 +21,7 @@ export function KeyLevelsTable({ rows }: { rows: LevelRow[] }) {
           >
             {r.value}
           </div>
-        </React.Fragment>
+        </div>
       ))}
     </div>
   );

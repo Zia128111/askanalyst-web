@@ -1120,6 +1120,186 @@ a.rail__link:hover { color: var(--color-text-link); text-decoration: underline; 
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
+/* ============ interaction ============ */
+/* One motion language for the whole product. This is a research tool, so
+   feedback confirms a target rather than performing: nothing moves more than
+   3px, nothing takes longer than 180ms, and colour always carries the message
+   with movement only reinforcing it. Every rule here degrades to a plain
+   colour change under `prefers-reduced-motion` at the foot of the block.
+
+   Kept in its own `:root` — the block at the top of this file is generated from
+   the Figma variable collection and must not be hand-edited. */
+:root {
+  --ease:  cubic-bezier(0.2, 0, 0.2, 1);
+  --dur-1: 120ms;  /* colour, border — reads as instant */
+  --dur-2: 180ms;  /* shadow, transform */
+  /* Shadows are tinted with the brand navy rather than black, so a raised card
+     still sits in the palette instead of going grey. */
+  --lift-sm: 0 2px 8px  rgb(12 57 113 / 0.07), 0 1px 2px rgb(12 57 113 / 0.05);
+  --lift-md: 0 8px 22px rgb(12 57 113 / 0.11), 0 2px 5px rgb(12 57 113 / 0.06);
+  --ring:    0 0 0 3px  rgb(20 133 255 / 0.15);
+}
+
+/* ── focus ──
+   `:where()` keeps this at zero specificity, so the bespoke rings already set
+   on `.noteref`, `.tl__year`, `.fmenu__search` and the share targets still win
+   where they have been tuned to their own shape. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ── shared easing ──
+   One declaration so every pill, chip, action and control shares a timing.
+   Properties are named rather than using `all`, which would animate layout. */
+.rating, .chip, .badge, .dropdown, .iaction, .tab, .viewmore, .brail__more,
+.rail__all, .rail__link, .rcard__link, .resetlink, .filterbar__icon,
+.navitem, .btn, .tl__date, .rating--btn, .fmenu__opt, .rsearch {
+  transition:
+    color var(--dur-1) var(--ease),
+    background var(--dur-1) var(--ease),
+    border-color var(--dur-1) var(--ease),
+    box-shadow var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease);
+}
+
+/* ── cards ──
+   The list row lifts, because it is the thing being scanned. The big panels
+   only gain a shadow: a 900px card sliding 2px reads as a glitch. */
+.icard, .ccard, .bstat {
+  transition: box-shadow var(--dur-2) var(--ease),
+              border-color var(--dur-1) var(--ease),
+              transform var(--dur-2) var(--ease);
+}
+.icard:hover { box-shadow: var(--lift-md); transform: translateY(-2px); }
+.ccard:hover { box-shadow: var(--lift-md); }
+.bstat:hover { box-shadow: var(--lift-sm); }
+
+/* ── data tables ──
+   `.trow` is `display: contents`, so it lays out nothing but still takes the
+   hover — which is how a CSS-grid table gets a row highlight without a row box.
+   It also gives the cells an owning `role="row"`, which they lacked. */
+.trow { display: contents; }
+.ctable__cell, .levels__cell { transition: background var(--dur-1) var(--ease); }
+.trow:hover > .ctable__cell,
+.trow:hover > .levels__cell { background: var(--color-bg-brand-subtle); }
+
+/* ── primary nav ── */
+.nav { display: flex; align-items: center; gap: var(--space-10); }
+.navitem {
+  padding: var(--space-4) var(--space-12);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--color-text-primary);
+  font-size: 11px; font-weight: 400; white-space: nowrap;
+}
+.navitem:hover {
+  background: var(--color-bg-brand-subtle);
+  border-color: var(--color-border-brand);
+  color: var(--color-text-link);
+}
+.navitem--on {
+  background: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  font-weight: 700;
+}
+.navitem--on:hover {
+  background: var(--color-brand-navy);
+  border-color: var(--color-brand-navy);
+  color: var(--color-text-inverse);
+}
+
+/* ── tabs ──
+   Hovering an unselected tab previews the rule the selected one carries, so the
+   underline appears to slide into place rather than blink on. */
+.tab:hover:not([aria-selected="true"]) {
+  background: var(--color-bg-brand-subtle);
+  border-bottom-color: var(--color-bg-brand-tint);
+}
+
+/* ── filter controls ── */
+.dropdown:hover { border-color: var(--color-brand-primary); color: var(--color-text-link); }
+.dropdown[aria-expanded="true"] {
+  border-color: var(--color-brand-primary);
+  background: var(--color-bg-brand-subtle);
+  color: var(--color-text-link);
+}
+/* The chevron points at the panel it opened. */
+.dropdown svg { transition: transform var(--dur-2) var(--ease); }
+.dropdown[aria-expanded="true"] svg { transform: rotate(180deg); }
+.filterbar__icon:hover { box-shadow: var(--ring); }
+.fmenu__panel {
+  animation: menu-in var(--dur-2) var(--ease);
+  transform-origin: top center;
+}
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-4px); }
+}
+
+/* ── directional links ──
+   The arrow leans the way the link goes. */
+.viewmore svg, .rail__all svg, .brail__more svg {
+  transition: transform var(--dur-2) var(--ease);
+}
+.viewmore:hover svg, .rail__all:hover svg, .brail__more:hover svg {
+  transform: translateX(3px);
+}
+.iaction svg { transition: transform var(--dur-2) var(--ease); }
+.iaction:hover svg { transform: translateY(-1px); }
+
+/* ── press ──
+   A button that moves under the pointer confirms the click landed. */
+.btn:active, .viewmore:active, .brail__more:active,
+.iaction:active, .resetlink:active, .rating--btn:active { transform: translateY(1px); }
+
+/* The Buy / Hold / Sell filters on the consensus card carry `aria-pressed` but
+   had no visual for it — the active filter was invisible. */
+.rating--btn[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 1px currentColor, var(--lift-sm);
+}
+
+/* ── timeline ──
+   The spine dot is the anchor for each event, so it is what acknowledges the
+   hover. */
+.tl__event::before {
+  transition: transform var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease);
+}
+.tl__event:hover::before { transform: scale(1.4); box-shadow: var(--ring); }
+
+/* ── donut ──
+   Hovering one arc drops the rest back, which is how you read a slice off a
+   ring this small. Pure CSS: the parent dims everything, the arc re-lights. */
+.donut circle { transition: opacity var(--dur-2) var(--ease); }
+.donut:hover circle { opacity: 0.3; }
+.donut circle:hover { opacity: 1; }
+
+/* ── share dialog ── */
+.sharescrim { animation: scrim-in var(--dur-2) var(--ease); }
+.sharedlg   { animation: dlg-in var(--dur-2) var(--ease); }
+@keyframes scrim-in { from { opacity: 0; } }
+@keyframes dlg-in   { from { opacity: 0; transform: translateY(8px) scale(0.98); } }
+
+/* ── reduced motion ──
+   Colour, border and shadow feedback all stay; only the movement goes. The
+   chevron rotation is kept because it reports state rather than decorating. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .icard:hover,
+  .btn:active, .viewmore:active, .brail__more:active,
+  .iaction:active, .resetlink:active, .rating--btn:active,
+  .iaction:hover svg,
+  .viewmore:hover svg, .rail__all:hover svg, .brail__more:hover svg,
+  .tl__event:hover::before,
+  .sharedlg__target:hover .sharedlg__disc { transform: none; }
+}
+
 /* ============ responsive ============ */
 /* 1320 — shell loses its fixed width and gains gutters
    1200 — nav tightens against the logo

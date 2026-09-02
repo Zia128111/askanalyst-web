@@ -12,27 +12,22 @@ export const NAV_HREF: Record<string, string> = {
   'AI Powered Insights': '/company/insights',
 };
 
-/** The pill nav from the Figma `Navigation` frame. `extra` adds screen-specific items. */
+/** The pill nav from the Figma `Navigation` frame. `extra` adds screen-specific
+ *  items. Styled by class rather than inline: an inline style cannot carry the
+ *  `:hover` and `:focus-visible` states, which is the same reason the responsive
+ *  rules live in `globals.css`. */
 export function SiteNav({ active, extra = [] }: { active?: string; extra?: string[] }) {
   const items = [...PRIMARY_NAV, ...extra];
   return (
-    <nav style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <nav className="nav">
       {items.map((label) => {
         const on = label === active;
         return (
           <a
             key={label}
+            className={`navitem${on ? ' navitem--on' : ''}`}
             href={NAV_HREF[label] ?? '#'}
-            style={{
-              padding: '4px 12px',
-              borderRadius: 'var(--radius-xs)',
-              fontSize: 11,
-              fontWeight: on ? 700 : 400,
-              whiteSpace: 'nowrap',
-              background: on ? 'var(--color-brand-primary)' : 'transparent',
-              color: on ? 'var(--color-text-inverse)' : 'var(--color-text-primary)',
-              border: `1px solid ${on ? 'var(--color-brand-primary)' : 'var(--color-border-subtle)'}`,
-            }}
+            aria-current={on ? 'page' : undefined}
           >
             {label}
           </a>

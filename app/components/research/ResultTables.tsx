@@ -10,8 +10,10 @@ export function KeyDataTable({ rows }: {
       <div className="ctable__cell ctable__cell--head ctable__cell--sm kdata__head" role="columnheader">
         Key Data
       </div>
+      {/* `.trow` is `display: contents` — the `role="row"` the cells were
+          missing, and the hover target for the row highlight. */}
       {rows.map((r) => (
-        <React.Fragment key={r.label}>
+        <div className="trow" key={r.label} role="row">
           <div className="ctable__cell ctable__cell--sm" role="rowheader">{r.label}</div>
           <div
             className={`ctable__cell ctable__cell--sm ctable__cell--end tabular${r.tone ? ` levels__cell--${r.tone}` : ''}`}
@@ -19,7 +21,7 @@ export function KeyDataTable({ rows }: {
           >
             {r.value}
           </div>
-        </React.Fragment>
+        </div>
       ))}
     </div>
   );
@@ -44,7 +46,7 @@ export function FinancialTable({ columns, rows }: {
           </div>
         ))}
         {rows.map((r) => (
-          <React.Fragment key={r.label}>
+          <div className="trow" key={r.label} role="row">
             <div className={`ctable__cell ctable__cell--sm${r.strong ? ' ctable__cell--strong' : ''}`} role="rowheader">
               {r.label}
             </div>
@@ -57,7 +59,7 @@ export function FinancialTable({ columns, rows }: {
                 {v}
               </div>
             ))}
-          </React.Fragment>
+          </div>
         ))}
       </div>
     </div>
