@@ -1000,6 +1000,15 @@ a.rail__link:hover { color: var(--color-text-link); text-decoration: underline; 
 }
 .header__nav::-webkit-scrollbar { display: none; }
 .header__actions { flex: none; margin-left: auto; padding-left: var(--space-16); display: flex; align-items: center; gap: var(--space-8); }
+/* Figma `Ellipse 6` — a 33px circle. `cover` crops a non-square photo to the
+   circle rather than squashing it. */
+.avatar {
+  flex: none; display: inline-block;
+  border-radius: 999px; object-fit: cover;
+  border: 1px solid var(--color-border-subtle);
+}
+/* Shown until the file lands in `public/logos/` — the Figma placeholder. */
+.avatar--empty { background: var(--color-bg-subtle); }
 
 /* ============ page layout ============ */
 /* Figma content column 1260 = main 955 + gap 16 + rail 289. The main column

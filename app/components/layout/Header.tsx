@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Logo } from './Logo';
 import { SiteNav } from './SiteNav';
+import { Avatar } from './Avatar';
 import { ChevronDown } from '../ui/Icon';
 
 /** Figma component `Header` — 1440×60.
@@ -19,11 +20,7 @@ export function Header({ navActive, navExtra }: { navActive?: string; navExtra?:
         </div>
 
         <div className="header__actions">
-          <span aria-hidden style={{
-            width: 33, height: 33, borderRadius: 999,
-            background: 'var(--color-bg-subtle)',
-            border: '1px solid var(--color-border-subtle)', display: 'inline-block',
-          }} />
+          <Avatar />
           <ChevronDown size={12} />
         </div>
       </div>
